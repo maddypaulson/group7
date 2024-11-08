@@ -23,6 +23,14 @@ cur_C_CASE = df['C_CASE'][0]
 new_df = pd.DataFrame(columns=["C_YEAR","C_MNTH","C_WDAY","C_HOUR","C_SEV","C_CONF","C_RCFG","C_WTHR","C_RSUR","C_RALN","C_TRAF","V_ID","V_TYPE","V_YEAR","P_ISEV","C_CASE"])
 
 gk = df.groupby(["C_CASE","V_ID"])
-for name, group in gk:
+for i, (name, group) in enumerate(gk):
     print(f"Group name: {name}")
     print(group)
+    if i >= 4:
+        break
+
+squished_df = gk.apply(lambda g: g.loc[g['P_ID'].idxmax()], include_groups=False).rename(columns={'P_ID': 'P_COUNT'})
+
+print("------------------")
+print("Squished DataFrame")
+print(squished_df.head())
