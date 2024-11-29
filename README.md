@@ -1,3 +1,8 @@
+# Running the code
+1. Download the zip file with the csv files for 2016 - 2019
+2. Open the ipynb file in google colab and add the csv files to the "sample data" folder
+3. Run the code.
+
 # Acronyms
 | **Acronym** | **Description**                               |
 |-------------|-----------------------------------------------|
